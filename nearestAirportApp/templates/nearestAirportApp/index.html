@@ -6,7 +6,10 @@
 <input type="submit" value="SUBMIT">
 </form>
 
-<div id="result">test</div>
+<div id="result">
+    <p id = "icao"></p>
+    <p id = "name"></p>
+</div>
 
 <script type="text/javascript">
     $(document).on('submit', '#search', function(e){
@@ -21,21 +24,9 @@
                 csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
                 },
                success:function(data){
-                document.getElementById("result").innerHTML = 'Success!' + data.lat_lon;
+                document.getElementById("icao").innerHTML = 'Nearest airport ICAO: ' + data.icao;
+                document.getElementById("name").innerHTML = 'Nearest airport Name: ' + data.name;
                 }
              });
          });
 </script>
-<!--{% for airport in first_50_airports %}-->
-    <!--<li>{{ airport.name }} {{ airport.icao }}</li>-->
-<!--{% endfor %}-->
-
-<!--{% if first_50_airports %}-->
-    <!--<ul>-->
-    <!--{% for airport in first_50_airports %}-->
-        <!--<li><a href="/nearestAirportApp/{{ airport.icao }}/">{{ airport.name }}</a></li>-->
-    <!--{% endfor %}-->
-    <!--</ul>-->
-<!--{% else %}-->
-    <!--<p>No polls are available.</p>-->
-<!--{% endif %}-->
