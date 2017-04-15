@@ -4,6 +4,7 @@ from django.template import loader
 from django.shortcuts import render
 import json
 from django.core import serializers
+from geopy.distance import great_circle
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -16,14 +17,31 @@ def search(request):
         lat = request.POST['lat']
         lon = request.POST['lon']
 
+    airports_list = Airportslist.objects.all()
+    nearest_airport = None
+
+    for entry in airports_list:
+        airport = [entry.icao, entry.type, entry.name, entry.lat, entry.lon, entry.elevation, entry.country, entry.region]
+        current_airport_lat = airport[3]
+        current_airport_lon = airport[4]
+
+        aircraft_location = (lat, lon)
+        current_airport_location = (current_airport_lat, current_airport_lon)
+        distance = great_circle(aircraft_location, current_airport_location).miles
+
+        airport.append(distance)
+
+        if nearest_airport is None:
+            nearest_airport = airport
+        elif nearest_airport[8] > distance:
+            nearest_airport = airport
+
     print(lat)
     print(lon)
     lat_lon = "RESPONSE FROM THE SERVER"
 
+    print(nearest_airport)
     return HttpResponse(json.dumps({'lat_lon': lat_lon}), content_type="application/json")
-    # return HttpResponse(data, content_type='application/json')
-    # return HttpResponse('')
-    # return HttpResponse(zipcodes[0].mpoly.geojson, mimetype="application/json")
 
 
 def index(request):
