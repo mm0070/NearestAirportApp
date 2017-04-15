@@ -1,0 +1,18 @@
+<form id="icao_search">
+    <input type="text" id="icao">
+    <input type="submit" value="SUBMIT">
+</form>
+
+{% for airport in first_50_airports %}
+    <li>{{ airport.name }} {{ airport.icao }}</li>
+{% endfor %}
+
+<!--{% if first_50_airports %}-->
+    <!--<ul>-->
+    <!--{% for airport in first_50_airports %}-->
+        <!--<li><a href="/nearestAirportApp/{{ airport.icao }}/">{{ airport.name }}</a></li>-->
+    <!--{% endfor %}-->
+    <!--</ul>-->
+<!--{% else %}-->
+    <!--<p>No polls are available.</p>-->
+<!--{% endif %}-->
