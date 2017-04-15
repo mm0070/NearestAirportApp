@@ -1,11 +1,34 @@
-<form id="icao_search">
-    <input type="text" id="icao">
-    <input type="submit" value="SUBMIT">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<form id="search">{% csrf_token %}
+    <input type="text" id="lat">
+    <input type="text" id="lon">
+<input type="submit" value="SUBMIT">
 </form>
 
-{% for airport in first_50_airports %}
-    <li>{{ airport.name }} {{ airport.icao }}</li>
-{% endfor %}
+<div id="result">test</div>
+
+<script type="text/javascript">
+    $(document).on('submit', '#search', function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type:'POST',
+            url:'/nearestAirportApp/search/',
+            data:{
+                lat:$('#lat').val(),
+                lon:$('#lon').val(),
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+                },
+               success:function(data){
+                document.getElementById("result").innerHTML = 'Success!' + data.lat_lon;
+                }
+             });
+         });
+</script>
+<!--{% for airport in first_50_airports %}-->
+    <!--<li>{{ airport.name }} {{ airport.icao }}</li>-->
+<!--{% endfor %}-->
 
 <!--{% if first_50_airports %}-->
     <!--<ul>-->
