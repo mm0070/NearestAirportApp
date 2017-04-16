@@ -1,9 +1,27 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Nearest Airport App</title>
+    <meta name="App to find the nearest airport" content="Nearest Airport App">
+    <meta name="Michal Mildner" content="Michal Mildner">
+
+    {% load compile_static %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static "nearestAirportApp/style/main.less"|compile %}" />
+
+</head>
+
+<body>
+
 
 <form id="search">{% csrf_token %}
     <input type="text" id="lat">
     <input type="text" id="lon">
-<input type="submit" value="SUBMIT">
+    <input type="submit" value="SUBMIT">
 </form>
 
 <div id="result">
@@ -11,22 +29,9 @@
     <p id = "name"></p>
 </div>
 
-<script type="text/javascript">
-    $(document).on('submit', '#search', function(e){
-        e.preventDefault();
+<script src={% static "nearestAirportApp/js/jquery-3.2.1.min.js" %} type="text/javascript"></script>
+<script src={% static "nearestAirportApp/js/getData.js" %} type="text/javascript"></script>
+</body>
+</html>
 
-        $.ajax({
-            type:'POST',
-            url:'/nearestAirportApp/search/',
-            data:{
-                lat:$('#lat').val(),
-                lon:$('#lon').val(),
-                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
-                },
-               success:function(data){
-                document.getElementById("icao").innerHTML = 'Nearest airport ICAO: ' + data.icao;
-                document.getElementById("name").innerHTML = 'Nearest airport Name: ' + data.name;
-                }
-             });
-         });
-</script>
+
