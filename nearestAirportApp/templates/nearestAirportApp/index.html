@@ -27,14 +27,15 @@
             <ul>
                 <!--<li class="logo"><img src="./img/logo.png"></li>-->
                 <!--<li class="logo"><a><b>Interactive</b>Agency</a><a class="hamburger" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a></li>-->
-                <li id="navbarElement" class="border"><a href="#">Home</a></li>
-                <li id="navbarElement" class="border"><a href="#">Find</a></li>
+                <li id="navbarElement" class="border"><a href="#top">Home</a></li>
+                <li id="navbarElement" class="border"><a href="#find">Search</a></li>
+                <li id="navbarElement" class="border"><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     <img src="{% static "nearestAirportApp/media/logo.png" %}" id="logo" class="logo">
 </div>
 
-<div class="top">
+<div class="top" id="top">
 <!--BACKGROUND START-->
 <div class="frame">
     <div class="plane-container">
@@ -95,12 +96,12 @@ S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715
     <div class="text_main">
 <h1>Hello!</h1>
     <h3>Welcome to the Nearest Airport Finder. Press the button below to continue.</h3>
-    <div class="continue_button"><i class="fa fa-chevron-circle-down"></i></div>
+        <div class="continue_button"><a href="#find"><i class="fa fa-chevron-circle-down"></i></a></div>
     </div>
 </div>
 
 
-<div class="search">
+<div id="find" class="search">
     <h1 style="color:#0079AE; text-align:center; font-size:40pt; padding-top: 4vh;">Search</h1>
     <div class="col-left">
         <p class="text-search">To find your nearest airport please click on the map to mark your aircraft's position and hit 'Search' button below.</p>
@@ -124,6 +125,15 @@ S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715
     <div id="map"></div>
     </div>
 
+</div>
+
+<div class="contact" id="contact">
+    <h1 style="color:#fca700; text-align:center; font-size:40pt; padding-top: 0vh;">Contact</h1>
+    <div class="contact-form">
+        <input type="text" class="contact-email" placeholder="e-mail address">
+        <textarea type="text" class="contact-message" placeholder="message"></textarea>
+        <input type="submit" class="btn" value="Submit">
+    </div>
 </div>
 
 <script>

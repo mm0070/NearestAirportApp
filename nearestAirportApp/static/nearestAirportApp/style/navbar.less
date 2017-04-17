@@ -74,37 +74,37 @@ nav ul li {
     border-spacing:1px;
 }
 
-@media only screen and (max-width: 1300px) {
-  .logo {
-    margin-left: 2%;
-    padding: 30px 0;
-    float: left;
-    font-size: 30px;
-  }
-
-  .scrolledLogo {
-    padding-top: 10px;
-    padding-bottom: 3px;
-  }
-
-  .scrolledNavbar {
-    padding: 0;
-  }
-
-  nav {
-    float: right;
-    padding: 3px 20px 3px 20px;
-    margin-right: 2%;
-    color: inherit;
-  }
-
-  nav ul li {
-    padding: 5px;
-  }
-}
-  @media only screen and (max-width: 700px) {
+//@media only screen and (max-width: 1300px) {
+//  .logo {
+//    margin-left: 2%;
+//    padding: 30px 0;
+//    float: left;
+//    font-size: 30px;
+//  }
+//
+//  .scrolledLogo {
+//    padding-top: 10px;
+//    padding-bottom: 3px;
+//  }
+//
+//  .scrolledNavbar {
+//    padding: 0;
+//  }
+//
+//  nav {
+//    float: right;
+//    padding: 3px 20px 3px 20px;
+//    margin-right: 2%;
+//    color: inherit;
+//  }
+//
+//  nav ul li {
+//    padding: 5px;
+//  }
+//}
+  @media only screen and (max-width: 1200px) {
           .navbar {
-              background:rgba(35,35,35,0.8);
+              background: rgba(0, 121, 174, 0.8);
               color:white;
               height:45px;
               -webkit-transition: all 0.2s ease-in-out;
@@ -114,8 +114,19 @@ nav ul li {
           }
   
           .logo {
-              padding: 10px;
-              font-size:20px;
+            z-index:-1;
+            position: fixed;
+            margin-left:16%;
+            margin-top: -31vh;
+            padding:7px 0;
+            float:left;
+            max-height:25px;
+          }
+
+          .scrolledLogo {
+            padding-top: 30px;
+            padding-bottom: 0px;
+            max-height:25px;
           }
   
           .burger {
