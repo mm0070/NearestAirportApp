@@ -44,6 +44,7 @@ def search(request):
     elevation = nearest_airport[5]
     country = nearest_airport[6]
     region = nearest_airport[7]
+    distance = nearest_airport[8]
 
     return HttpResponse(json.dumps({'icao': icao,
                                     'type': type,
@@ -52,7 +53,8 @@ def search(request):
                                     'lon': lon,
                                     'elevation': elevation,
                                     'country': country,
-                                    'region': region}), content_type="application/json")
+                                    'region': region,
+                                    'distance': distance}), content_type="application/json")
 
 
 def index(request):
