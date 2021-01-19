@@ -1,0 +1,2 @@
+# NearestAirportApp
+`docker-compose up`
