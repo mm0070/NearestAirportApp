@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'nearestAirportApp',
         'USER': 'airportApp',
         'PASSWORD': 'airportapp',
-        'HOST': '127.0.0.1',
+        'HOST': 'postgres-server',
         'PORT': '5432',
     }
 }
@@ -124,7 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "/Users/mm0070/djangoProjects/nearestAirport/nearestAirportApp/static/"
+STATIC_ROOT = "app/nearestAirport/nearestAirportApp/static/"
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',

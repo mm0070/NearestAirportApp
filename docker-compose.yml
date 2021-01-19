@@ -1,0 +1,15 @@
+version: '3'
+services:
+  postgres-server:
+    build: db
+    env_file:
+      - db/db.env
+    # volumes:
+      # - db-data:/var/lib/postgresql/data/
+    ports: 
+      - "5432:5432"
+  # app:
+  #   build: .
+
+volumes:
+  db-data: 
