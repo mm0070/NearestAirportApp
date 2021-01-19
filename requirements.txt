@@ -3,7 +3,7 @@ configparser==4.0.2
 contextlib2==0.6.0.post1
 distlib==0.3.0
 Django==1.11
-django-static-precompiler==0.7
+django-static-precompiler==1.6
 filelock==3.0.12
 geographiclib==1.50
 geopy==1.23.0

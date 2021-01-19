@@ -12,6 +12,11 @@ def search(request):
         lat = request.POST['lat']
         lon = request.POST['lon']
 
+
+    print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+
+
     airports_list = Airportslist.objects.all()
     nearest_airport = None
 

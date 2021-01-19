@@ -10,19 +10,19 @@ from django.db import models
 
 
 class Airportslist(models.Model):
-    icao = models.TextField(db_column='ICAO', blank=True, null=False, primary_key=True)  # Field name made lowercase.
-    type = models.TextField(db_column='Type', blank=True, null=True)  # Field name made lowercase.
-    name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
-    lat = models.FloatField(db_column='LAT', blank=True, null=True)  # Field name made lowercase.
-    lon = models.FloatField(db_column='LON', blank=True, null=True)  # Field name made lowercase.
-    elevation = models.IntegerField(db_column='Elevation', blank=True, null=True)  # Field name made lowercase.
-    country = models.TextField(db_column='Country', blank=True, null=True)  # Field name made lowercase.
-    region = models.TextField(db_column='Region', blank=True, null=True)  # Field name made lowercase.
+    icao = models.CharField(primary_key=True, max_length=255)
+    type = models.CharField(max_length=255, blank=True, null=True)
+    name = models.CharField(max_length=255, blank=True, null=True)
+    lat = models.FloatField(blank=True, null=True)
+    lon = models.FloatField(blank=True, null=True)
+    elevation = models.IntegerField(blank=True, null=True)
+    country = models.CharField(max_length=255, blank=True, null=True)
+    region = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.icao
 
     class Meta:
         managed = False
-        db_table = 'airportsList'
+        db_table = 'airportslist'
 
